@@ -50,8 +50,8 @@
 		<h3>AL Public Library</h3>
 		<p>123 Address Lane, Town IN 12345</p>
 		<p>(812)555-1234</p>
-		<button onclick ="location.href = 'localhost:8888/libraryHome.html';">Home</button>
-    	<button onclick = "location.href = 'localhost:8888/searchCatalogue.html';">Search Catalogue</button>
+		<button onclick ="location.href = '/libraryHome.html';">Home</button>
+    	<button onclick = "location.href = '/searchCatalogue.html';">Search Catalogue</button>
 	</center>
 
 
