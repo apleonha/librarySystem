@@ -1,4 +1,4 @@
-//THIS IS NOT THE MOST RECENT VERSION - see folder src/Library
+//THIS IS NOT THE MOST RECENT VERSION
 
 package librarySystem;
 
