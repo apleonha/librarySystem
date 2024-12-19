@@ -1,0 +1,9 @@
+Contents: the final components of the system in working order
+1. database
+  contains 2 versions of the exported database,one as .sql and one .csv.
+  both contain the same version of the database, the only difference is the file type.
+2. javaFiles
+  the java app src
+  runnable jar and jar file
+3. webAppFiles
+  all files associated with the functioning web application.
