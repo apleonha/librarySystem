@@ -7,5 +7,4 @@ to include the appropriate server information.
 I have been testing everything on my local machine and my local MAMP host, so all of the addresses in the code lead there, but could be changed
 to any server address where the database in could be hosted and be run just the same.
 
-The html/php docs should be easily run within any browser. The java app runs in the console for now, but will eventually have a GUI. For now, functions
-can be run and tested within the console using the menu created for the console.
+The html/php docs should be easily run within any browser. The java app runs as a normal app with a functional GUI. Both the web app files and the java app should be able to access the database, as long as they can access the server where the database is hosted.
