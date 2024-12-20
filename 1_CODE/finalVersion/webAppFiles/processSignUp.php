@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['email'];
 
         // Prepare statement to check user
-        $stmt = $conn->prepare("SELECT * FROM user WHERE cardNo = ? AND email = '? AND password IS NULL");
+        $stmt = $conn->prepare("SELECT * FROM user WHERE cardNo = ? AND email = ? AND password IS NULL");
         $stmt->bind_param("ss", $user, $email);
         $stmt->execute();
         $result = $stmt->get_result();
