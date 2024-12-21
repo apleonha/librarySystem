@@ -45,46 +45,117 @@
 		</style>
 		
 		<script>
-		function selectBook(){
-		var HTML = "<form id='searchForm' action = 'search.php' method = "POST"><table style='padding:10px; float:center;'>"
-		+ "<tr><td>Item Type:</td><td><fieldset><legend>I'm looking for:</legend><input type='radio' name='type' value='book' checked> books<br/>"
-		+ "<input type='radio' name='type' value='dvd' onclick = 'selectDVD()'> DVDs <br/><input type='radio' name='type' value='cd' onclick = 'selectCD()'> CDs</fieldset></td></tr>"
-		+ "<tr><td>Title: </td><td><input type='text' name='title'></td></tr>"
-		+ "<tr><td>Author:</td><td><input type='text' name='author'></td></tr>"
-		+ "<tr><td>Genre:</td><td><input type='text' name='genre'></td></tr>"
-		+ "<tr><td><button type='submit' name='search'>Search Now</button></td><td><button type='reset' name='reset'>Reset</button></td></table></form>";
-		
-		var content = document.getElementById("searchInput");
-		content.innerHTML = HTML;
-		}
-		
-		function selectDVD(){
-		var HTML = "<form id='searchForm' action = 'search.php' method = "POST"><table style='padding:10px; float:center;'>"
-		+ "<tr><td>Item Type:</td><td><fieldset><legend>I'm looking for:</legend><input type='radio' name='type' value='book' onclick = 'selectBook()'> books<br/>"
-		+ "<input type='radio' name='type' value='dvd' checked> DVDs <br/><input type='radio' name='type' value='cd' onclick = 'selectCD()'> CDs</fieldset></td></tr>"
-		+ "<tr><td>Title: </td><td><input type='text' name='title'></td></tr>"
-		+ "<tr><td>Director:</td><td><input type='text' name='director'></td></tr>"
-		+"<tr><td>Studio:</td><td><input type='text' name='studio'></td></tr>"
-		+ "<tr><td>Genre:</td><td><input type='text' name='genre'></td></tr>"
-		+ "<tr><td><button type='submit' name='search'>Search Now</button></td><td><button type='reset' name='reset'>Reset</button></td></table></form>";
-		
-		var content = document.getElementById("searchInput");
-		content.innerHTML = HTML;
-		}	
-		
-		function selectCD(){
-		var HTML = "<form id='searchForm' action = 'search.php' method = "POST"><table style='padding:10px; float:center;'>"
-		+ "<tr><td>Item Type:</td><td><fieldset><legend>I'm looking for:</legend><input type='radio' name='type' value='book' onclick = 'selectBook()'> books<br/>"
-		+ "<input type='radio' name='type' value='dvd' onclick = 'selectDVD()'> DVDs <br/><input type='radio' name='type' value='cd' checked> CDs</fieldset></td></tr>"
-		+ "<tr><td>Title: </td><td><input type='text' name='title'></td></tr>"
-		+ "<tr><td>Artist:</td><td><input type='text' name='director'></td></tr>"
-		+ "<tr><td>Genre:</td><td><input type='text' name='audioGenre'></td></tr>"
-		+ "<tr><td><button type='submit' name='search'>Search Now</button></td><td><button type='reset' name='reset'>Reset</button></td></table></form>";
-		
-		var content = document.getElementById("searchInput");
-		content.innerHTML = HTML;
-		}		
-			
+		document.addEventListener("DOMContentLoaded", function () {
+  // Initialize with books
+  selectBook();
+});
+
+function selectBook() {
+  const HTML = `
+    <form id="searchForm" action="search.php" method="POST">
+      <table style="padding:10px; float:center;">
+        <tr>
+          <td>Item Type:</td>
+          <td>
+            <fieldset>
+              <legend>I'm looking for:</legend>
+              <input type="radio" name="type" value="book" checked> books<br/>
+              <input type="radio" name="type" value="dvd"> DVDs<br/>
+              <input type="radio" name="type" value="cd"> CDs
+            </fieldset>
+          </td>
+        </tr>
+        <tr><td>Title: </td><td><input type="text" name="title"></td></tr>
+        <tr><td>Author:</td><td><input type="text" name="author"></td></tr>
+        <tr><td>Genre:</td><td><input type="text" name="genre"></td></tr>
+        <tr>
+          <td><button type="submit" name="search">Search Now</button></td>
+          <td><button type="reset" name="reset">Reset</button></td>
+        </tr>
+      </table>
+    </form>`;
+  document.getElementById("searchInput").innerHTML = HTML;
+
+  addRadioListeners();
+}
+
+function selectDVD() {
+  const HTML = `
+    <form id="searchForm" action="search.php" method="POST">
+      <table style="padding:10px; float:center;">
+        <tr>
+          <td>Item Type:</td>
+          <td>
+            <fieldset>
+              <legend>I'm looking for:</legend>
+              <input type="radio" name="type" value="book"> books<br/>
+              <input type="radio" name="type" value="dvd" checked> DVDs<br/>
+              <input type="radio" name="type" value="cd"> CDs
+            </fieldset>
+          </td>
+        </tr>
+        <tr><td>Title: </td><td><input type="text" name="title"></td></tr>
+        <tr><td>Director:</td><td><input type="text" name="director"></td></tr>
+        <tr><td>Studio:</td><td><input type="text" name="studio"></td></tr>
+        <tr><td>Genre:</td><td><input type="text" name="genre"></td></tr>
+        <tr>
+          <td><button type="submit" name="search">Search Now</button></td>
+          <td><button type="reset" name="reset">Reset</button></td>
+        </tr>
+      </table>
+    </form>`;
+  document.getElementById("searchInput").innerHTML = HTML;
+
+  addRadioListeners();
+}
+
+function selectCD() {
+  const HTML = `
+    <form id="searchForm" action="search.php" method="POST">
+      <table style="padding:10px; float:center;">
+        <tr>
+          <td>Item Type:</td>
+          <td>
+            <fieldset>
+              <legend>I'm looking for:</legend>
+              <input type="radio" name="type" value="book"> books<br/>
+              <input type="radio" name="type" value="dvd"> DVDs<br/>
+              <input type="radio" name="type" value="cd" checked> CDs
+            </fieldset>
+          </td>
+        </tr>
+        <tr><td>Title: </td><td><input type="text" name="title"></td></tr>
+        <tr><td>Artist:</td><td><input type="text" name="artist"></td></tr>
+        <tr><td>Genre:</td><td><input type="text" name="audioGenre"></td></tr>
+        <tr>
+          <td><button type="submit" name="search">Search Now</button></td>
+          <td><button type="reset" name="reset">Reset</button></td>
+        </tr>
+      </table>
+    </form>`;
+  document.getElementById("searchInput").innerHTML = HTML;
+
+  addRadioListeners();
+}
+
+function addRadioListeners() {
+  const radios = document.querySelectorAll("input[name='type']");
+  radios.forEach((radio) => {
+    radio.addEventListener("change", (event) => {
+      switch (event.target.value) {
+        case "book":
+          selectBook();
+          break;
+        case "dvd":
+          selectDVD();
+          break;
+        case "cd":
+          selectCD();
+          break;
+      }
+    });
+  });
+}
 		</script>
 	</head>
 <body>
@@ -111,7 +182,8 @@
 				<input type="radio" name="type" value="book" checked onclick = "selectBook()"> books<br/>
 				<input type="radio" name="type" value="dvd" onclick = "selectDVD()"> DVDs <br/>
 				<input type="radio" name="type" value="cd" onclick = "selectCD()"> CDs
-				</fieldset></td>
+			</fieldset>
+			</td>
 		</tr>
 		<tr>
 			<td>Title: </td>
