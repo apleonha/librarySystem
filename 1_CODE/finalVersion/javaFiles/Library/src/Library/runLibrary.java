@@ -1203,8 +1203,8 @@ public class runLibrary extends Application {
 			Button current = new Button("Curent Holds and Check Outs");
 			current.setMinSize(50, 30);
 			current.setOnAction(e -> {
-				String cquery1 = "";
-				String cquery2 = "";
+				String cquery1 = "SELECT inventorytitles.title, holds.position FROM holds JOIN inventorytitles ON holds.inventoryID = inventorytitles.inventoryID WHERE cardNo = " + cardNo;
+				String cquery2 = "SELECT inventorytitles.title, checkOutHistory.checkOutDate, checkOutHistory.dateDue FROM checkOutHistory JOIN inventorytitles ON checkOutHistory.inventoryID = inventorytitles.inventoryID WHERE cardNo = " + cardNo + " && checkOutHistory.returnDate IS NULL";
 				
 				Stage currentStage = new Stage();
 				currentStage.setTitle("User History");
