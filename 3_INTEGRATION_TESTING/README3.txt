@@ -1,0 +1,2 @@
+Integration testing is performed on the final code in the Library/src folder and all of the webAppFiles. A duplicate database could be used, but since this is a fake database anyways, I was not overly concerned with it and used the original database.
+Steps for the integration testing are laid out in detail in integrationTesting.pdf document, with steps and expected and actual results, and the traceability matrix and other documentation files addressing test cases are all up to date with this document.
